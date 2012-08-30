@@ -1,58 +1,75 @@
-## Device folder for Celox HD
+## Build Instructions for Celox HD
 
-
-### Follow the usual instructions to download sources for CM9, e.g.
+### Follow the usual instructions to download sources for CM10, e.g.
 ```
 1) mkdir ~/android/system
 2) cd ~/android/system
 3) curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
 4) chmod a+x ~/bin/repo
-5) repo init -u git://github.com/CyanogenMod/android.git -b ics
+5) repo init -u git://github.com/CyanogenMod/android.git -b jellybean
 ```
-(You'll need to install some binaries, but those are the basic instructions)
+Before that you may need to install some binaries, but those are the basic instructions. Google for the full setup details. If you had already set up an environment for CM9, you'll need to add this for CM10: "sudo apt-get install libxml2-utils"
+
+Here's a good guide for Jelly Bean: http://forum.xda-developers.com/showthread.php?t=1762641.
 
 Remain in ~/android/system for the rest of the commands.
 
-### Include the following in .repo/local_manifest.xml to allow these additional repositories to be synced:
+### Include the file .repo/local_manifest.xml to allow these additional repositories to be synced:
 ```
-<project name="CyanogenMod/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" remote="github" revision="ics" />
-<project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="ics" />
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="http://github.com/" name="gh" revision="master" />
+  <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="jellybean" />
+  <project name="CyanogenMod/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" revision="jb-full" />
+  <project name="dsixda/android_device_samsung_dali" path="device/samsung/dali" revision="jellybean" />
+  <project name="dsixda/android_vendor_samsung_dali" path="vendor/samsung/dali" revision="jellybean" />
+</manifest>
 ```
+NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_dali_defconfig".  Download the file from here:  https://raw.github.com/dsixda/android_kernel_samsung_msm8660-common/jellybean/arch/arm/configs/cyanogenmod_dali_defconfig
+
 
 ### Download or update all repositories:
 ```
-repo sync -j4
+repo sync -j4   
 ```
+NOTE: The "4" may be replaced by # of CPU cores on your PC
 
-### To build the kernel, you need to download the kernel defconfig found in my Github, or include it in your local_manifest.xml:
-```
-<project name="dsixda/android_kernel_samsung_celoxhd" path="kernel/samsung/msm8660-common/arch/arm/configs" revision="master" />
-```
 
 ### Get all the prebuilts, like ROM Manager:
 ```
 vendor/cm/get-prebuilts
 ```
 
-### NOTE 1: For now, when building CM9, to prevent 'modelid_cfg.sh' errors while flashing with updater-script:
+### You might need to update your cross-compiler path:
+```
+1) Open up kernel/samsung/msm8660-common/Makefile
+2) Edit the line starting with 'CROSS-COMPILE' to point to: 
+     ~/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
+```
 
-        1) Open build/tools/releasetools/ota_from_target_files
-        2) Then, look for 'OPTIONS.modelidcfg' and set it to False  
-
-### NOTE 2: If building ClockworkMod, to avoid the Nandroid backup process hanging on long file names:
-
-        1) Open bootable/recovery/nandroid.c 
-        2) In the 'yaffs_callback' procedure, add the command "return;" to the first line
-
+### Optimize your Linux installation for future rebuilds:
+```
+echo "export USE_CCACHE=1" >> ~/.bashrc
+prebuilt/linux-x86/ccache/ccache -M 20G
+source ~/.bashrc
+```
+NOTE: 20GB cache here, but can be changed later
 
 ### Ready to build!
 ```
 . build/envsetup.sh
-brunch cm_celoxhd-eng
+brunch cm_dali-eng
 ```
+
+Subsequent builds only require the brunch command above, but if you modified BoardConfig.mk, you'll need to clean out the build output folder before running brunch (in order to pick up its changes). In that case, run this before using brunch:
+```
+make clobber
+```
+
 
 ### OPTIONAL: If you want to build ClockworkMod:
 ```
-. build/tools/device/makerecoveries.sh cm_celoxhd-eng 
+. build/envsetup.sh
+. build/tools/device/makerecoveries.sh cm_dali-eng 
 ```
 
