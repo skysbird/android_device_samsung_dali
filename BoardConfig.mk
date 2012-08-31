@@ -34,7 +34,7 @@ USE_CAMERA_STUB := true
 TARGET_BOOTLOADER_BOARD_NAME := dali
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := SGH-I757M,SGH-I757,dali,SGHI757M,SGHI757
+TARGET_OTA_ASSERT_DEVICE := SHV-E120L,SGH-I757,dali,SGHI757M,SGHI757
 
 # Kernel
 BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4

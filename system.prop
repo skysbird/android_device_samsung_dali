@@ -1,4 +1,4 @@
-# system.prop for SGH-I757M
+# system.prop for SHV-E120L
 #
 
 rild.libpath=/system/lib/libril-qc-qmi-1.so
