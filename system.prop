@@ -25,7 +25,8 @@ media.stagefright.enable-qcp=true
 
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-lpa.decode=true
+#lpa.decode=true
+lpa.decode=false
 lpa.use-stagefright=true
 
 #
