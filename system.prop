@@ -97,13 +97,28 @@ ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 # set mass storage to default
 persist.sys.usb.config=mass_storage
 
-# qcom display options
+# Qualcomm display settings
+debug.qctwa.statusbar=1 
+debug.qctwa.preservebuf=1 
+debug.qc.hardware=true
 com.qc.hardware=true
 ro.hdmi.enable=true
-debug.sf.hw=1
-debug.egl.hw=1
-debug.composition.type=dyn
-debug.mdpcomp.maxlayer=2
-debug.mdpcomp.logs=0
-ro.hwui.text_cache_width=2048
 
+# Improve touch responsiveness through Hardware Rendering
+
+debug.sf.hw=1
+persist.sys.ui.hw=1
+debug.performance.tuning=1
+video.accelerate.hw=1
+debug.egl.profiler=1
+debug.egl.hw=1
+debug.composition.type=gpu
+debug.mdpcomp.logs=0
+
+# Improve Voice Call clarity
+ro.ril.enable.amr.wideband=1
+
+# Increase Voice Call Audio Adjustment Steps.
+ro.config.vc_call_steps=20
+
+dalvik.vm.dexopt-flags=v=f,o=v,u=n,m=y
