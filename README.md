@@ -1,4 +1,36 @@
-## Build Instructions for Celox HD
+## Build Instructions for E120L tnx skysbird for code i just do almost nothing
+
+### Prepare Build environment
+
+```
+sudo apt-get install git-core gnupg flex bison python rar original-awk gawk p7zip-full gperf libsdl1.2-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev pngcrush schedtool
+sudo apt-get install libc6-dev x11proto-core-dev libx11-dev libgl1-mesa-dev mingw32 tofrodos python-markdown libxml2-utils
+sudo apt-get install g++-multilib lib32z1-dev ia32-libs lib32ncurses5-dev lib32readline-gplv2-dev gcc-multilib g++-multilib xsltproc
+```
+
+Download Java JDK for Linux 64-bit from Java site: (http://www.oracle.com/technetwork/ja...ads/index.html)
+
+```
+sudo apt-get purge openjdk-\* icedtea-\* icedtea6-\*
+sudo mkdir -p /opt/java/64/
+sudo cp jdk-6u##-linux-x64.bin /opt/java/64
+sudo su -
+cd /opt/java/64
+chmod +x jdk-6u##-linux-x64.bin
+./jdk-6u##-linux-x64.bin
+exit
+```
+
+```
+gedit ~/.bashrc
+```
+
+```
+# Java PATHs
+export JAVA_HOME=/opt/java/64/jdk1.6.0_##
+export PATH=$PATH:$JAVA_HOME/bin
+```
+
 
 ### Follow the usual instructions to download sources for CM10, e.g.
 ```
@@ -20,9 +52,9 @@ Remain in ~/android/system for the rest of the commands.
 <manifest>
   <remote fetch="http://github.com/" name="gh" revision="master" />
   <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="jellybean" />
-  <project name="CyanogenMod/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" revision="jb-full" />
-  <project name="dsixda/android_device_samsung_dali" path="device/samsung/dali" revision="jellybean" />
-  <project name="dsixda/android_vendor_samsung_dali" path="vendor/samsung/dali" revision="jellybean" />
+  <project name="Socim/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" revision="jellybean" />
+  <project name="Socim/android_device_samsung_dali" path="device/samsung/dali" revision="jellybean" />
+  <project name="Socim/android_vendor_samsung_dali" path="vendor/samsung/dali" revision="jellybean" />
 </manifest>
 ```
 NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_dali_defconfig".  Download the file from here:  https://raw.github.com/dsixda/android_kernel_samsung_msm8660-common/jellybean/arch/arm/configs/cyanogenmod_dali_defconfig
@@ -30,9 +62,9 @@ NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_dali
 
 ### Download or update all repositories:
 ```
-repo sync -j4   
+repo sync -j16   
 ```
-NOTE: The "4" may be replaced by # of CPU cores on your PC
+
 
 
 ### Get all the prebuilts, like ROM Manager:
@@ -44,7 +76,7 @@ vendor/cm/get-prebuilts
 ```
 1) Open up kernel/samsung/msm8660-common/Makefile
 2) Edit the line starting with 'CROSS-COMPILE' to point to: 
-     ~/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
+     /home/<your user name>/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 ```
 
 ### Optimize your Linux installation for future rebuilds:
