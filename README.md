@@ -53,6 +53,8 @@ Remain in ~/android/system for the rest of the commands.
   <remote fetch="http://github.com/" name="gh" revision="master" />
   <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="jellybean" />
   <project name="Socim/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" revision="jellybean" />
+  <project name="Socim/android_bootable_recovery" path="bootable/recovery" revision="jellybean" />
+  <project name="Socim/android_packages_apps_Camera" path="packages/apps/Camera" revision="jellybean" />
   <project name="Socim/android_device_samsung_dali" path="device/samsung/dali" revision="jellybean" />
   <project name="Socim/android_vendor_samsung_dali" path="vendor/samsung/dali" revision="jellybean" />
 </manifest>
