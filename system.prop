@@ -120,5 +120,3 @@ ro.ril.enable.amr.wideband=1
 
 # Increase Voice Call Audio Adjustment Steps.
 ro.config.vc_call_steps=20
-
-dalvik.vm.dexopt-flags=v=f,o=v,u=n,m=y
