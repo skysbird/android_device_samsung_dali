@@ -1,3 +1,4 @@
+
 # system.prop for SHV-E120L
 #
 
@@ -25,8 +26,8 @@ media.stagefright.enable-qcp=true
 
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-#lpa.decode=true
-lpa.decode=false
+lpa.decode=true
+#lpa.decode=false
 lpa.use-stagefright=true
 
 #
@@ -44,8 +45,16 @@ ro.emmc.sdcard.partition=17
 persist.timed.enable=true
 
 # System props for audio
-persist.audio.fluence.mode=endfire
+#persist.audio.fluence.mode=endfire
+#persist.audio.vr.enable=false
+persist.audio.fluence.mode=broadside
 persist.audio.vr.enable=false
+persist.audio.hp=true
+af.resampler.quality=255
+af.resample=48000
+ro.semc.sound_effects_enabled=true
+ro.semc.xloud.supported=true
+persist.service.xloud.enable=1
 
 #
 # system prop for opengles version
@@ -108,15 +117,50 @@ ro.hdmi.enable=true
 
 debug.sf.hw=1
 persist.sys.ui.hw=1
+persist.sys.composition.type=gpu
 debug.performance.tuning=1
 video.accelerate.hw=1
 debug.egl.profiler=1
 debug.egl.hw=1
 debug.composition.type=gpu
 debug.mdpcomp.logs=0
+ro.sf.compbypass.enable=1
+dev.pm.dyn_samplingrate=1
+debug.overlayui.enable=1
+
 
 # Improve Voice Call clarity
 ro.ril.enable.amr.wideband=1
 
 # Increase Voice Call Audio Adjustment Steps.
 ro.config.vc_call_steps=20
+
+# Ril
+ro.ril.hsxpa=5
+ro.ril.gprsclass=34
+ro.ril.hep=1
+ro.ril.hsdpa.category=28
+ro.ril.enable.3g.prefix=1
+#ro.ril.htcmaskw1.bitmask=4294967295
+#ro.ril.htcmaskw1=268449905
+ro.ril.hsupa.category=9
+#ro.ril.def.agps.mode=2
+ro.ril.def.agps.feature=1
+ro.ril.enable.sdr=1
+ro.ril.enable.gea3=1
+ro.ril.enable.fd.plmn.prefix=23402,23410,23411
+#ro.ril.disable.power.collapse=0
+ro.ril.enable.a52=1
+ro.ril.enable.a53=1
+ro.ril.enable.dtm=1
+
+# Additional Tweaks
+ro.config.hw_camera_resize=true
+ro.config.dualmic=true
+ro.service.swiqi.supported=true
+persist.service.swiqi.enable=1
+ro.ril.disable.power.collapse=1
+ro.ril.def.agps.mode=2
+ro.camera.preview=true
+ro.ril.enable.korea.stk=1
+
