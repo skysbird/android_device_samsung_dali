@@ -40,9 +40,13 @@ export PATH=$PATH:$JAVA_HOME/bin
 4) chmod a+x ~/bin/repo
 5) repo init -u git://github.com/CyanogenMod/android.git -b jellybean
 ```
+
+### No longer needs, but you may want to read.
+```
 Before that you may need to install some binaries, but those are the basic instructions. Google for the full setup details. If you had already set up an environment for CM9, you'll need to add this for CM10: "sudo apt-get install libxml2-utils"
 
 Here's a good guide for Jelly Bean: http://forum.xda-developers.com/showthread.php?t=1762641.
+```
 
 Remain in ~/android/system for the rest of the commands.
 
