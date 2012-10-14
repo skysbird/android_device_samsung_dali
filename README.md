@@ -1,4 +1,4 @@
-## Build Instructions for E120L tnx skysbird for code i just do almost nothing
+## Build Instructions for E120L
 
 ### Prepare Build environment
 
@@ -53,13 +53,11 @@ Remain in ~/android/system for the rest of the commands.
   <remote fetch="http://github.com/" name="gh" revision="master" />
   <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="jellybean" />
   <project name="Socim/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" revision="jellybean" />
-  <project name="Socim/android_bootable_recovery" path="bootable/recovery" revision="jellybean" />
   <project name="Socim/android_packages_apps_Camera" path="packages/apps/Camera" revision="jellybean" />
   <project name="Socim/android_device_samsung_dali" path="device/samsung/dali" revision="jellybean" />
   <project name="Socim/android_vendor_samsung_dali" path="vendor/samsung/dali" revision="jellybean" />
 </manifest>
 ```
-NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_dali_defconfig".  Download the file from here:  https://raw.github.com/dsixda/android_kernel_samsung_msm8660-common/jellybean/arch/arm/configs/cyanogenmod_dali_defconfig
 
 
 ### Download or update all repositories:
@@ -73,21 +71,6 @@ repo sync -j16
 ```
 vendor/cm/get-prebuilts
 ```
-
-### You might need to update your cross-compiler path:
-```
-1) Open up kernel/samsung/msm8660-common/Makefile
-2) Edit the line starting with 'CROSS-COMPILE' to point to: 
-     /home/<your user name>/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
-```
-
-### Optimize your Linux installation for future rebuilds:
-```
-echo "export USE_CCACHE=1" >> ~/.bashrc
-prebuilt/linux-x86/ccache/ccache -M 20G
-source ~/.bashrc
-```
-NOTE: 20GB cache here, but can be changed later
 
 ### Ready to build!
 ```
