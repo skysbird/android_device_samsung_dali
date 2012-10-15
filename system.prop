@@ -1,4 +1,3 @@
-
 # system.prop for SHV-E120L
 #
 
@@ -149,7 +148,7 @@ ro.ril.def.agps.feature=1
 ro.ril.enable.sdr=1
 ro.ril.enable.gea3=1
 ro.ril.enable.fd.plmn.prefix=23402,23410,23411
-#ro.ril.disable.power.collapse=0
+ro.ril.disable.power.collapse=0
 ro.ril.enable.a52=1
 ro.ril.enable.a53=1
 ro.ril.enable.dtm=1
@@ -159,7 +158,7 @@ ro.config.hw_camera_resize=true
 ro.config.dualmic=true
 ro.service.swiqi.supported=true
 persist.service.swiqi.enable=1
-ro.ril.disable.power.collapse=1
+#ro.ril.disable.power.collapse=1
 ro.ril.def.agps.mode=2
 ro.camera.preview=true
 ro.ril.enable.korea.stk=1
