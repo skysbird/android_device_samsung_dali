@@ -118,11 +118,11 @@ esac
 
 #
 # Suppress default route installation during RA for IPV6; user space will take
-# care of this
+# care of this //change this to 1 to fix no default route problem
 #
 for file in /proc/sys/net/ipv6/conf/*
 do
-  echo 0 > $file/accept_ra_defrtr
+  echo 1 > $file/accept_ra_defrtr
 done
 
 #
