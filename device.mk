@@ -26,8 +26,8 @@ $(call inherit-product-if-exists, vendor/samsung/dali/dali-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/samsung/dali/overlay
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
