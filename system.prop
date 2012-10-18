@@ -129,7 +129,6 @@ debug.overlayui.enable=1
 debug.enabletr=true
 ro.max.fling_velocity=4000
 
-
 # Improve Voice Call clarity
 ro.ril.enable.amr.wideband=1
 
