@@ -126,6 +126,8 @@ debug.mdpcomp.logs=0
 ro.sf.compbypass.enable=1
 dev.pm.dyn_samplingrate=1
 debug.overlayui.enable=1
+debug.enabletr=true
+ro.max.fling_velocity=4000
 
 
 # Improve Voice Call clarity
