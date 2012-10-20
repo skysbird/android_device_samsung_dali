@@ -154,6 +154,7 @@ ro.ril.enable.a52=1
 ro.ril.enable.a53=1
 ro.ril.enable.dtm=1
 
+
 # Additional Tweaks
 ro.config.hw_camera_resize=true
 ro.config.dualmic=true
