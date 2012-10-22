@@ -183,12 +183,15 @@
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
-    </string-array>
+     <item>"usb\\d"</item>
+	<item>"rndis\\d"</item>
+	</string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
          should be empty.  An example would be "softap.*" -->
     <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>"wlan\\d"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -201,6 +204,7 @@
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
+ 	<item>"bnep\\d"</item>
     </string-array>
 
     <!-- Max number of Bluetooth tethering connections allowed. If this is
@@ -274,7 +278,7 @@
 
     <!-- Boolean indicating whether the start command should be called on the wireless interface
          when starting the SoftAp -->
-    <bool name="config_wifiApStartInterface">false</bool>
+    <bool name="config_wifiApStartInterface">true</bool>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
@@ -551,6 +555,10 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+	<item>10</item>
+        <item>100</item>
+        <item>1000</item>
+        <item>10000</item>    
     </integer-array>
 
 
@@ -562,6 +570,11 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
+	<item>9</item>
+        <item>48</item>
+        <item>108</item>
+        <item>206</item>
+        <item>246</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -569,6 +582,11 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
+	<item>9</item>
+        <item>48</item>
+        <item>108</item>
+        <item>206</item>
+        <item>246</item>
     </integer-array>
 
     <!-- Array of output values for keyboard backlight corresponding to the LUX values
@@ -576,6 +594,11 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
+	<item>9</item>
+        <item>48</item>
+        <item>108</item>
+        <item>206</item>
+        <item>246</item>
     </integer-array>
 
     <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
@@ -601,10 +624,10 @@
     <bool name="config_enableWallpaperService">true</bool>
 
     <!-- Package name providing network location support. -->
-    <string name="config_networkLocationProviderPackageName" translatable="false">@null</string>
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.location</string>
 
     <!-- Package name providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName" translatable="false">@null</string>
+    <string name="config_geocodeProviderPackageName" translatable="false">com.google.android.location</string>
 
     <!-- Boolean indicating if current platform supports bluetooth SCO for off call
     use cases -->
