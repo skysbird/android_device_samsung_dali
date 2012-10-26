@@ -79,7 +79,7 @@ persist.usb_mass_storage.notify=0
 ro.telephony.call_ring.multiple=0
 
 # For 720x1280 panel
-ro.sf.lcd_density=320
+ro.sf.lcd_density=280
 
 # Fields for custom RIL
 # MAX PROP NAME is 31 chars --|
