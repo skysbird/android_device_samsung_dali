@@ -29,15 +29,15 @@ USE_CAMERA_STUB := true
 -include device/samsung/celox-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/samsung/skyrocket/BoardConfigVendor.mk
+-include vendor/samsung/dali/BoardConfigVendor.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := skyrocket
+TARGET_BOOTLOADER_BOARD_NAME := dali
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := SGH-I727,skyrocket
+TARGET_OTA_ASSERT_DEVICE := SHV-E120L,dali,SHV-E120L
 
 # Kernel
-TARGET_KERNEL_CONFIG        := cyanogenmod_skyrocket_defconfig
+TARGET_KERNEL_CONFIG        := cyanogenmod_dali_defconfig
 TARGET_KERNEL_SOURCE        := kernel/samsung/msm8660-common
 
 # cat /proc/emmc
@@ -55,5 +55,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838860800
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 20044333056
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/skyrocket/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/dali/bluetooth
 
+USE_NATIVE_FENCE_SYNC := false

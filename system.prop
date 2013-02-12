@@ -1,4 +1,4 @@
-# system.prop for SGH-T727
+# system.prop for SHV-E120L
 #
 
 rild.libpath=/system/lib/libril-qc-qmi-1.so
@@ -59,7 +59,7 @@ ro.ril.transmitpower=true
 ro.telephony.call_ring.multiple=0
 
 # for 480x800 panel
-ro.sf.lcd_density=240
+ro.sf.lcd_density=320
 
 # Fields for custom RIL
 # MAX PROP NAME is 31 chars --|
@@ -77,4 +77,9 @@ persist.radio.add_power_save=1
 
 # System proverty snapshot disable
 persist.radio.snapshot_disabled=1
+
+
+persist.sys.strictmode.visual=0
+
+persist.sys.strictmode.disable=1
 
