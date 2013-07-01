@@ -70,3 +70,8 @@ TARGET_NO_INITLOGO := true
 TARGET_BOOTANIMATION_PRELOAD := true
 
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/e120l/bluetooth
+
+# Odex if official release
+ifdef MK_RELEASE
+WITH_DEXPREOPT := true
+endif
