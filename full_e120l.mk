@@ -23,7 +23,8 @@
  
 # Torch
 PRODUCT_PACKAGES := \
-    Torch
+    Torch \
+    E120LParts
 
 BOARD_HAVE_NFC := true
 
