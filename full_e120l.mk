@@ -24,7 +24,7 @@
 # Torch
 PRODUCT_PACKAGES := \
     Torch \
-    E120LParts
+    E120LSettings
 
 BOARD_HAVE_NFC := true
 

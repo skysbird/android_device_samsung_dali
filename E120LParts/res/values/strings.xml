@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Advanced settings</string>
-    <string name="category_drawing_title">Drawing</string>
-    <string name="disable_overlays_startup">Auto disable HW overlays</string>
-    <string name="disable_overlays_startup_summary">Always use GPU for screen compositing</string>
-    <string name="force_hw_ui_startup">Auto force GPU rendering</string>
-    <string name="force_hw_ui_startup_summary">Force use of GPU for 2d drawing</string>
-</resources>
