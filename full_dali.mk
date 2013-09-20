@@ -23,19 +23,18 @@
  
 # Torch
 PRODUCT_PACKAGES := \
-    Torch \
-    E120LSettings
+    Torch 
 
 BOARD_HAVE_NFC := true
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from e120l device
-$(call inherit-product, device/samsung/e120l/device.mk)
+$(call inherit-product, device/samsung/dali/device.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_e120l
-PRODUCT_DEVICE := e120l
+PRODUCT_NAME := full_dali
+PRODUCT_DEVICE := dali
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := SAMSUNG-SHV-E120L

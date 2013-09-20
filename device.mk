@@ -20,10 +20,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf
 
 ## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/e120l/e120l-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/dali/dali-vendor.mk)
 
 ## overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/e120l/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/dali/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
@@ -31,24 +31,24 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/e120l/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    device/samsung/e120l/ramdisk/init.target.rc:root/init.target.rc \
-    device/samsung/e120l/ramdisk/init.qcom.rc:root/init.qcom.rc \
-    device/samsung/e120l/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
-    device/samsung/e120l/fstab.qcom:root/fstab.qcom
+    device/samsung/dali/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    device/samsung/dali/ramdisk/init.target.rc:root/init.target.rc \
+    device/samsung/dali/ramdisk/init.qcom.rc:root/init.qcom.rc \
+    device/samsung/dali/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    device/samsung/dali/fstab.qcom:root/fstab.qcom
 
 # Vold
-PRODUCT_COPY_FILES += \
-    device/samsung/e120l/vold.fstab:system/etc/vold.fstab
+#PRODUCT_COPY_FILES += \
+    device/samsung/dali/vold.fstab:system/etc/vold.fstab
 
 # BT firmware
 PRODUCT_COPY_FILES += \
-    device/samsung/e120l/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd \
-    device/samsung/e120l/firmware/bcm4330B1.hcd:system/bin/bcm4330B1.hcd
+    device/samsung/dali/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd \
+    device/samsung/dali/firmware/bcm4330B1.hcd:system/bin/bcm4330B1.hcd
 
 # common msm8660
 $(call inherit-product, device/samsung/msm8660-common/msm8660.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/e120l/e120l-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/dali/dali-vendor.mk)
